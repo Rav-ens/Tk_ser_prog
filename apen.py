@@ -8,7 +8,7 @@ class Appen:
         self.root = Toplevel(parent)
         self.root.title(title)
         #self.root.geometry(f"{width}x{height}+200+200")
-        self.root.config(bg='#E1D5C5')
+        #self.root.config(bg='#E1D5C5')
         self.delobj = Entry(self.root)
         self.delobj1 = Entry(self.root)
         self.delobj2 = Entry(self.root)
@@ -32,7 +32,7 @@ class Appen:
         self.f9 = 0
 
         self.root.resizable(resizable[0], resizable[1])
-        Button(self.root, text='Добавить', command=self.entry, bg='grey', font=('TimesNewRoman', 14))\
+        Button(self.root, text='Добавить', command=self.entry, font=('TimesNewRoman', 14))\
             .grid(column=1, row=10, sticky=EW)
         self.vvod()
         if icon:
@@ -63,25 +63,25 @@ class Appen:
     def vvod(self):
 
         self.lbl()
-        self.delobj = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj.grid(column=1, row=0, sticky=W, padx=5, pady=7)
-        self.delobj1 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj1 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj1.grid(column=1, row=1, sticky=W, padx=5, pady=7)
-        self.delobj2 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj2 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj2.grid(column=1, row=2, sticky=W, padx=5, pady=7)
-        self.delobj3 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj3 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj3.grid(column=1, row=3, sticky=W, padx=5, pady=7)
-        self.delobj4 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj4 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj4.grid(column=1, row=4, sticky=W, padx=5, pady=7)
-        self.delobj5 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj5 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj5.grid(column=1, row=5, sticky=W, padx=5, pady=7)
-        self.delobj6 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj6 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj6.grid(column=1, row=6, sticky=W, padx=5, pady=7)
-        self.delobj7 = Entry(self.root, width=50, font='TimesNewRoman 14')
-        self.delobj7.grid(column=1, row=7, sticky=W)
-        self.delobj8 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj7 = Entry(self.root, width=20, font='TimesNewRoman 14')
+        self.delobj7.grid(column=1, row=7, sticky=W, padx=5, pady=7)
+        self.delobj8 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj8.grid(column=1, row=8, sticky=W, padx=5, pady=7)
-        self.delobj9 = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj9 = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj9.grid(column=1, row=9, sticky=W, padx=5, pady=7)
 
     def get(self):
@@ -89,7 +89,10 @@ class Appen:
         self.f1 = self.delobj1.get()
         self.f2 = self.delobj2.get()
         self.f3 = self.delobj3.get()
-        self.f4 = self.delobj4.get()
+        if self.delobj4.get():
+            self.f4 = self.delobj4.get()
+        else:
+            self.f4 = ' - '
         self.f5 = self.delobj5.get()
         self.f6 = self.delobj6.get()
         self.f7 = self.delobj7.get()
@@ -104,10 +107,10 @@ class Appen:
         Label(self.root, text="Издатель", font='TimesNewRoman 14').grid(column=0, row=2, sticky=W, padx=5, pady=7)
         Label(self.root, text="Когда началось", font='TimesNewRoman 14')\
             .grid(column=0, row=3, sticky=W, padx=5, pady=7)
-        Label(self.root, text="Когда закончилось(если не закончилось то ----)", font='TimesNewRoman 14')\
+        Label(self.root, text="Когда закончилось", font='TimesNewRoman 14')\
             .grid(column=0, row=4, sticky=W, padx=5, pady=7)
-        Label(self.root, text="Колвосезонов", font='TimesNewRoman 14').grid(column=0, row=5, sticky=W, padx=5, pady=7)
-        Label(self.root, text="Колво серий", font='TimesNewRoman 14').grid(column=0, row=6, sticky=W, padx=5, pady=7)
+        Label(self.root, text="Кол-во сезонов", font='TimesNewRoman 14').grid(column=0, row=5, sticky=W, padx=5, pady=7)
+        Label(self.root, text="Кол-во серий", font='TimesNewRoman 14').grid(column=0, row=6, sticky=W, padx=5, pady=7)
         Label(self.root, text="Жанры", font='TimesNewRoman 14').grid(column=0, row=7, sticky=W, padx=5, pady=7)
         Label(self.root, text="Актеры", font='TimesNewRoman 14').grid(column=0, row=8, sticky=W, padx=5, pady=7)
         Label(self.root, text="Страна выпуска", font='TimesNewRoman 14').grid(column=0, row=9, sticky=W, padx=5, pady=7)
