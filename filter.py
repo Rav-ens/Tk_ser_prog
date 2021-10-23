@@ -53,8 +53,8 @@ class Filter:
         '''
         self.button()
 
-        self.lbl = Label(self.fram1, text='Выбирите по каким критериям фильтровать', font=('Calibre', 15, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
+        #self.lbl = Label(self.fram1, text='Выбирите по каким критериям фильтровать', font=('Calibre', 15, 'bold'))
+        #self.lbl.grid(column=0, row=0, sticky=W)
 
         self.chgn = False
         self.chgk = False
@@ -71,11 +71,11 @@ class Filter:
 
     def button(self):
 
-        self.fram1.destroy()
+        #self.fram1.destroy()
         self.fram2.destroy()
-        self.fram1 = Frame(self.root)
+        #self.fram1 = Frame(self.root)
         self.fram2 = Frame(self.root)
-
+        '''
         self.stat_gn = BooleanVar()
         self.stat_gn.set(False)
         Checkbutton(self.fram1, text='Год начала', var=self.stat_gn, font=('Calibre', 13, 'bold'))\
@@ -114,34 +114,36 @@ class Filter:
         Button(self.fram1, text='Добавить', command=self.chebn, font=('Calibre', 15, 'bold'), width=15)\
             .grid(column=0, row=8, sticky=W)
         self.fram1.pack(anchor=W)
+        '''
+        self.chebn()
 
     def chebn(self):
         h = 0
-        if self.stat_gn.get():
+        if True:
             self.gn()
             self.chgn = True
             h = 1
-        if self.stat_gk.get():
+        if True:
             self.chgk = True
             self.gk()
             h = 1
-        if self.stat_ser.get():
+        if True:
             self.ser()
             self.chser = True
             h = 1
-        if self.stat_sis.get():
+        if True:
             self.chsis = True
             self.sis()
             h = 1
-        if self.stat_akt.get():
+        if True:
             self.akt()
             self.chakt = True
             h = 1
-        if self.stat_jarn.get():
+        if True:
             self.jarn()
             self.chja = True
             h = 1
-        if self.stat_cont.get():
+        if True:
             self.cont()
             self.chco = True
             h = 1
@@ -155,74 +157,78 @@ class Filter:
             self.fram1.destroy()
 
     def gn(self):
-        self.lbl = Label(self.fram3, text='Вышел_с ', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
-        self.ckogn = Entry(self.fram3, font=('Calibre', 13, 'bold'))
-        self.ckogn.grid(column=1, row=0, sticky=W)
-        Label(self.fram3, text='по', font=('Calibre', 13, 'bold')).grid(column=2, row=0, sticky=W)
-        self.pokogn = Entry(self.fram3, font=('Calibre', 13, 'bold'))
-        self.pokogn.grid(column=3, row=0, sticky=W)
+        self.lbl = Label(self.fram6, text='Вышел с ', font=('Calibre', 13, 'bold'))
+        self.lbl.grid(column=0, row=0, sticky=W, padx=5, pady=7)
+        self.ckogn = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.ckogn.grid(column=1, row=0, sticky=EW, padx=5, pady=7)
+        Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
+            .grid(column=2, row=0, sticky=W, padx=5, pady=7)
+        self.pokogn = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.pokogn.grid(column=3, row=0, sticky=EW, padx=5, pady=7)
         #Button(self.fram3, text='найти', command=self.hoi, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
-        self.fram3.pack(anchor=W)
+        #self.fram3.pack(anchor=W)
 
     def gk(self):
 
-        self.lbl = Label(self.fram4, text='Закончился с ', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
-        self.ckogk = Entry(self.fram4, font=('Calibre', 13, 'bold'))
-        self.ckogk.grid(column=1, row=0, sticky=W)
-        Label(self.fram4, text='по', font=('Calibre', 13, 'bold')).grid(column=2, row=0, sticky=W)
-        self.pokogk = Entry(self.fram4, font=('Calibre', 13, 'bold'))
-        self.pokogk.grid(column=3, row=0, sticky=W)
+        self.lbl = Label(self.fram6, text='Закончился с ', font=('Calibre', 13, 'bold'))
+        self.lbl.grid(column=0, row=1, sticky=W, padx=5, pady=7)
+        self.ckogk = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.ckogk.grid(column=1, row=1, sticky=EW, padx=5, pady=7)
+        Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
+            .grid(column=2, row=1, sticky=W, padx=5, pady=7)
+        self.pokogk = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.pokogk.grid(column=3,row=1, sticky=EW, padx=5, pady=7)
         #Button(self.fram4, text='найти', command=self.hol, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
-        self.fram4.pack(anchor=W)
+        #self.fram4.pack(anchor=W)
 
     def ser(self):
-        self.lbl = Label(self.fram5, text='Колво серий с ', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
-        self.cser = Entry(self.fram5, font=('Calibre', 13, 'bold'))
-        self.cser.grid(column=1, row=0, sticky=W)
-        Label(self.fram5, text='по', font=('Calibre', 13, 'bold')).grid(column=2, row=0, sticky=W)
-        self.poser = Entry(self.fram5, font=('Calibre', 13, 'bold'))
-        self.poser.grid(column=3, row=0, sticky=W)
+        self.lbl = Label(self.fram6, text='Колво серий с ', font=('Calibre', 13, 'bold'))
+        self.lbl.grid(column=0, row=2, sticky=W, padx=5, pady=7)
+        self.cser = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cser.grid(column=1, row=2, sticky=EW, padx=5, pady=7)
+        Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
+            .grid(column=2, row=2, sticky=W, padx=5, pady=7)
+        self.poser = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.poser.grid(column=3, row=2, sticky=EW, padx=5, pady=7)
         #Button(self.fram5, text='найти', command=self.hool, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
-        self.fram5.pack(anchor=W)
+        #self.fram5.pack(anchor=W)
 
     def sis(self):
         self.lbl = Label(self.fram6, text='Кол-во сезонов с ', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
+        self.lbl.grid(column=0, row=3, sticky=W, padx=5, pady=7)
         self.csis = Entry(self.fram6, font=('Calibre', 13, 'bold'))
-        self.csis.grid(column=1, row=0, sticky=W)
-        Label(self.fram6, text='по', font=('Calibre', 13, 'bold')).grid(column=2, row=0, sticky=W)
+        self.csis.grid(column=1, row=3, sticky=EW, padx=5, pady=7)
+        Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
+            .grid(column=2, row=3, sticky=W, padx=5, pady=7)
         self.posis = Entry(self.fram6, font=('Calibre', 13, 'bold'))
-        self.posis.grid(column=3, row=0, sticky=W)
+        self.posis.grid(column=3, row=3, sticky=EW, padx=5, pady=7)
         #Button(self.fram6, text='найти', command=self.hoool, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
         self.fram6.pack(anchor=W)
 
     def akt(self):
-        self.lbl = Label(self.fram7, text='Актеры ', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
-        self.cakt = Entry(self.fram7, font=('Calibre', 13, 'bold'))
-        self.cakt.grid(column=1, row=0, sticky=W)
+        self.lbl = Label(self.fram6, text='Актеры ', font=('Calibre', 13, 'bold'))
+        self.lbl.grid(column=0, row=4, sticky=W, padx=5, pady=7)
+        self.cakt = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cakt.grid(column=1, row=4, sticky=EW, padx=5, pady=7)
         #Button(self.fram7, text='найти', command=self.hp).grid(column=0, row=3, sticky=W)
-        self.fram7.pack(anchor=W)
+        #self.fram7.pack(anchor=W)
 
     def jarn(self):
 
-        self.lbl = Label(self.fram8, text='Жанры', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
-        self.cja = Entry(self.fram8, font=('Calibre', 13, 'bold'))
-        self.cja.grid(column=1, row=0, sticky=W)
+        self.lbl = Label(self.fram6, text='Жанры', font=('Calibre', 13, 'bold'))
+        self.lbl.grid(column=0, row=5, sticky=W, padx=5, pady=7)
+        self.cja = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cja.grid(column=1, row=5, sticky=EW, padx=5, pady=7)
         #Button(self.fram8, text='найти', command=self.hop).grid(column=0, row=3, sticky=W)
-        self.fram8.pack(anchor=W)
+        #self.fram8.pack(anchor=W)
 
     def cont(self):
-        self.lbl = Label(self.fram9, text='Страна ', font=('Calibre', 13, 'bold'))
-        self.lbl.grid(column=0, row=0, sticky=W)
-        self.cco = Entry(self.fram9, font=('Calibre', 13, 'bold'))
-        self.cco.grid(column=1, row=0, sticky=W)
+        self.lbl = Label(self.fram6, text='Страна ', font=('Calibre', 13, 'bold'))
+        self.lbl.grid(column=0, row=6, sticky=W, padx=5, pady=7)
+        self.cco = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cco.grid(column=1, row=6, sticky=EW, padx=5, pady=7)
         #Button(self.fram9, text='найти', command=self.hop).grid(column=0, row=3, sticky=W)
-        self.fram9.pack(anchor=W)
+        #self.fram9.pack(anchor=W)
 
     def grab_focus(self):
         self.root.grab_set()
@@ -304,44 +310,52 @@ class Filter:
 
         id_colector = []
 
-        if self.chgn:
+        if self.ckogn.get():
             gn = self.ckogn.get()
-            pgn = self.pokogn.get()
         else:
             gn = 1800
+        if self.pokogn.get():
+            pgn = self.pokogn.get()
+        else:
             pgn = 2030
 
-        if self.chgk:
+        if self.ckogk.get():
             gk = self.ckogk.get()
-            pgk = self.pokogk.get()
         else:
             gk = 1800
+        if self.pokogk.get():
+            pgk = self.pokogk.get()
+        else:
             pgk = 2030
 
-        if self.chser:
+        if self.cser.get():
             ser = self.cser.get()
-            pser = self.poser.get()
         else:
             ser = 0
+        if self.poser.get():
+            pser = self.poser.get()
+        else:
             pser = 1000
 
-        if self.chsis:
-            sis = self.csis.get()
+        if self.posis.get():
             psis = self.posis.get()
         else:
-            sis = 0
             psis = 20
+        if self.csis.get():
+            sis = self.csis.get()
+        else:
+            sis = 0
 
-        if self.chakt:
+        if self.cakt.get():
             akt = self.cakt.get()
         else:
             akt = ' '
 
-        if self.chja:
+        if self.cja.get():
             jarn = self.cja.get()
         else:
             jarn = ' '
-        if self.chco:
+        if self.cco.get():
             count = self.cco.get()
         else:
             count = '.'
@@ -351,7 +365,7 @@ class Filter:
                 h = int(gn) + ki
                 h = str(h)
                 if h in self.rel[i][4]:
-                    if self.chgk:
+                    if self.ckogk.get():
                         for kki in range(int(pgk) - int(gk) + 1):
                             hk = int(gk) + kki
                             hk = str(hk)
