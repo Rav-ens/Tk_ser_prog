@@ -8,14 +8,14 @@ from tkinter import messagebox as mb
 class Poisk:
 
     def __init__(self, parent, width=10000, height=20000, title="MyWindow", resizable=(True, True), icon=None):
+        self.rel = ['loh']
+
         self.root = Toplevel(parent)
         self.root.title(title)
-        self.root.config(bg='#E1D5C5')
-        #self.root.geometry(f"{width}x{height}")
         self.root.resizable(resizable[0], resizable[1])
         self.poi = Button(self.root, text='Найти', width=6, command=self.hol, font='TimesNewRoman 14')
         self.poi.grid(column=0, row=1, sticky=W)
-        self.delobj = Entry(self.root, width=50, font='TimesNewRoman 14')
+        self.delobj = Entry(self.root, width=20, font='TimesNewRoman 14')
         self.delobj.grid(column=0, row=0, sticky=EW)
 
         if icon:
@@ -102,7 +102,7 @@ class Poisk:
         trees = ttk.Treeview(self.root, columns=columns, show='headings')
 
         style = ttk.Style(self.root)
-        style.configure("Treeview", rowheight=30, font=('Calibri', 11))
+        style.configure("Treeview", rowheight=30, font=('Calibre', 13, 'bold'))
         trees.configure(style="Treeview")
 
         trees.heading('#1', text='ids')

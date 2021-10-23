@@ -7,12 +7,10 @@ from tkinter import messagebox as mb
 class Filter:
 
     def __init__(self, parent, width=1400, height=1400, title="MyWindow", resizable=(True, True), icon=None):
+
         self.root = Toplevel(parent)
         self.root.title(title)
-        #self.root.geometry(f"{width}x{height}+300+100")
         self.root.resizable(resizable[0], resizable[1])
-
-
 
         self.fram1 = Frame(self.root)
         self.fram2 = Frame(self.root)
@@ -25,36 +23,24 @@ class Filter:
         self.fram9 = Frame(self.root)
         self.fram10 = Frame(self.root)
 
+        self.lbl = 0
         self.ckog = Entry(self.root)
         self.rel = 'gh'
         self.pokog = Entry(self.root)
 
+        self.cco = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cakt = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cja = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.posis = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.csis = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.poser = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.cser = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.pokogk = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.ckogk = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.pokogn = Entry(self.fram6, font=('Calibre', 13, 'bold'))
+        self.ckogn = Entry(self.fram6, font=('Calibre', 13, 'bold'))
 
-
-        '''
-        mainmenu = Menu(self.root)
-
-        mainmenu1 = Menu(mainmenu)
-        mainmenu1.add_command(label='Год начала', command=self.god_nach)
-        mainmenu1.add_command(label='Год конца', command=self.god_kon)
-        mainmenu.add_cascade(label='Года', menu=mainmenu1)
-
-        mainmenu.add_command(label='Серий', command=self.seris)
-
-        mainmenu.add_command(label='Сезоны', command=self.sesons)
-
-        mainmenu.add_command(label='Жанры', command=self.button)
-
-        mainmenu.add_command(label='Актеры', command=self.akter)
-
-        mainmenu.add_command(label='Страна', command=self.countr)
-
-        self.root.config(menu=mainmenu)
-        '''
-        self.button()
-
-        #self.lbl = Label(self.fram1, text='Выбирите по каким критериям фильтровать', font=('Calibre', 15, 'bold'))
-        #self.lbl.grid(column=0, row=0, sticky=W)
+        self.chebn()
 
         self.chgn = False
         self.chgk = False
@@ -68,54 +54,6 @@ class Filter:
         if icon:
             self.root.iconbitmap(icon)
         self.grab_focus()
-
-    def button(self):
-
-        #self.fram1.destroy()
-        self.fram2.destroy()
-        #self.fram1 = Frame(self.root)
-        self.fram2 = Frame(self.root)
-        '''
-        self.stat_gn = BooleanVar()
-        self.stat_gn.set(False)
-        Checkbutton(self.fram1, text='Год начала', var=self.stat_gn, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=1, sticky=W)
-
-        self.stat_gk = BooleanVar()
-        self.stat_gk.set(False)
-        Checkbutton(self.fram1, text='Год конца', var=self.stat_gk, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=2, sticky=W)
-
-        self.stat_ser = BooleanVar()
-        self.stat_ser.set(False)
-        Checkbutton(self.fram1, text='Кол-во серий', var=self.stat_ser, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=3, sticky=W)
-
-        self.stat_sis = BooleanVar()
-        self.stat_sis.set(False)
-        Checkbutton(self.fram1, text='Кол-во сезонов', var=self.stat_sis, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=4, sticky=W)
-
-        self.stat_akt = BooleanVar()
-        self.stat_akt.set(False)
-        Checkbutton(self.fram1, text='Актеры', var=self.stat_akt, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=5, sticky=W)
-
-        self.stat_jarn = BooleanVar()
-        self.stat_jarn.set(False)
-        Checkbutton(self.fram1, text='Жанр', var=self.stat_jarn, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=6, sticky=W)
-
-        self.stat_cont = BooleanVar()
-        self.stat_cont.set(False)
-        Checkbutton(self.fram1, text='Страна', var=self.stat_cont, font=('Calibre', 13, 'bold'))\
-            .grid(column=0, row=7, sticky=W)
-
-        Button(self.fram1, text='Добавить', command=self.chebn, font=('Calibre', 15, 'bold'), width=15)\
-            .grid(column=0, row=8, sticky=W)
-        self.fram1.pack(anchor=W)
-        '''
-        self.chebn()
 
     def chebn(self):
         h = 0
@@ -147,14 +85,10 @@ class Filter:
             self.cont()
             self.chco = True
             h = 1
-        if h == 0:
-           mb.showwarning('warning', 'Вы не выбрали пункт фильтра')
-           self.button()
-        else:
-            Button(self.fram10, text='Применить', command=self.intheend, font=('Calibre', 15, 'bold'), width=15) \
-                .grid(column=0, row=8, sticky=W)
-            self.fram10.pack(anchor=W)
-            self.fram1.destroy()
+        Button(self.fram10, text='Применить', command=self.intheend, font=('Calibre', 15, 'bold'), width=15) \
+            .grid(column=0, row=8, sticky=W)
+        self.fram10.pack(anchor=W)
+        self.fram1.destroy()
 
     def gn(self):
         self.lbl = Label(self.fram6, text='Вышел', font=('Calibre', 13, 'bold'))
@@ -163,16 +97,12 @@ class Filter:
         Label(self.fram6, text='c', font=('Calibre', 13, 'bold'))\
             .grid(column=1, row=0, sticky=E, padx=5, pady=7)
 
-        self.ckogn = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.ckogn.grid(column=2, row=0, sticky=EW, padx=5, pady=7)
 
         Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
             .grid(column=3, row=0, sticky=W, padx=5, pady=7)
 
-        self.pokogn = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.pokogn.grid(column=4, row=0, sticky=EW, padx=5, pady=7)
-        #Button(self.fram3, text='найти', command=self.hoi, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
-        #self.fram3.pack(anchor=W)
 
     def gk(self):
 
@@ -182,16 +112,12 @@ class Filter:
         Label(self.fram6, text='c', font=('Calibre', 13, 'bold')) \
             .grid(column=1, row=1, sticky=E, padx=5, pady=7)
 
-        self.ckogk = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.ckogk.grid(column=2, row=1, sticky=EW, padx=5, pady=7)
 
         Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
             .grid(column=3, row=1, sticky=W, padx=5, pady=7)
 
-        self.pokogk = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.pokogk.grid(column=4, row=1, sticky=EW, padx=5, pady=7)
-        #Button(self.fram4, text='найти', command=self.hol, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
-        #self.fram4.pack(anchor=W)
 
     def ser(self):
         self.lbl = Label(self.fram6, text='Кол-во серий', font=('Calibre', 13, 'bold'))
@@ -200,16 +126,12 @@ class Filter:
         Label(self.fram6, text='c', font=('Calibre', 13, 'bold')) \
             .grid(column=1, row=2, sticky=E, padx=5, pady=7)
 
-        self.cser = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.cser.grid(column=2, row=2, sticky=EW, padx=5, pady=7)
 
         Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
             .grid(column=3, row=2, sticky=W, padx=5, pady=7)
 
-        self.poser = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.poser.grid(column=4, row=2, sticky=EW, padx=5, pady=7)
-        #Button(self.fram5, text='найти', command=self.hool, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
-        #self.fram5.pack(anchor=W)
 
     def sis(self):
         self.lbl = Label(self.fram6, text='Кол-во сезонов', font=('Calibre', 13, 'bold'))
@@ -218,44 +140,32 @@ class Filter:
         Label(self.fram6, text='c', font=('Calibre', 13, 'bold')) \
             .grid(column=1, row=3, sticky=E, padx=5, pady=7)
 
-        self.csis = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.csis.grid(column=2, row=3, sticky=EW, padx=5, pady=7)
 
         Label(self.fram6, text='по', font=('Calibre', 13, 'bold'))\
             .grid(column=3, row=3, sticky=W, padx=5, pady=7)
-        self.posis = Entry(self.fram6, font=('Calibre', 13, 'bold'))
 
         self.posis.grid(column=4, row=3, sticky=EW, padx=5, pady=7)
-        #Button(self.fram6, text='найти', command=self.hoool, font=('Calibre', 13, 'bold')).grid(column=0, row=3, sticky=W)
         self.fram6.pack(anchor=W)
 
     def akt(self):
         self.lbl = Label(self.fram6, text='Актеры ', font=('Calibre', 13, 'bold'))
         self.lbl.grid(column=0, row=4, sticky=W, padx=5, pady=7)
 
-        self.cakt = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.cakt.grid(column=2, row=4, sticky=EW, padx=5, pady=7)
-        #Button(self.fram7, text='найти', command=self.hp).grid(column=0, row=3, sticky=W)
-        #self.fram7.pack(anchor=W)
 
     def jarn(self):
 
         self.lbl = Label(self.fram6, text='Жанры', font=('Calibre', 13, 'bold'))
         self.lbl.grid(column=0, row=5, sticky=W, padx=5, pady=7)
 
-        self.cja = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.cja.grid(column=2, row=5, sticky=EW, padx=5, pady=7)
-        #Button(self.fram8, text='найти', command=self.hop).grid(column=0, row=3, sticky=W)
-        #self.fram8.pack(anchor=W)
 
     def cont(self):
         self.lbl = Label(self.fram6, text='Страна ', font=('Calibre', 13, 'bold'))
         self.lbl.grid(column=0, row=6, sticky=W, padx=5, pady=7)
 
-        self.cco = Entry(self.fram6, font=('Calibre', 13, 'bold'))
         self.cco.grid(column=2, row=6, sticky=EW, padx=5, pady=7)
-        #Button(self.fram9, text='найти', command=self.hop).grid(column=0, row=3, sticky=W)
-        #self.fram9.pack(anchor=W)
 
     def grab_focus(self):
         self.root.grab_set()
@@ -392,7 +302,7 @@ class Filter:
                 h = int(gn) + ki
                 h = str(h)
                 if h in self.rel[i][4]:
-                    if self.ckogk.get():
+                    if self.pokogk.get():
                         for kki in range(int(pgk) - int(gk) + 1):
                             hk = int(gk) + kki
                             hk = str(hk)
@@ -408,9 +318,7 @@ class Filter:
                                                 if akt in self.rel[i][9]:
                                                     if jarn in self.rel[i][8]:
                                                         if count in self.rel[i][10]:
-                                                            if str(self.rel[i][0]) in id_colector:
-                                                                None
-                                                            else:
+                                                            if str(self.rel[i][0]) not in id_colector:
                                                                 id_colector += [str(self.rel[i][0])]
                                                                 contacts.append(self.rel[i])
                                                                 kj = 1
@@ -430,9 +338,7 @@ class Filter:
                                                 if akt in self.rel[i][9]:
                                                     if jarn in self.rel[i][8]:
                                                         if count in self.rel[i][10]:
-                                                            if str(self.rel[i][0]) in id_colector:
-                                                                None
-                                                            else:
+                                                            if str(self.rel[i][0]) not in id_colector:
                                                                 id_colector += [str(self.rel[i][0])]
                                                                 contacts.append(self.rel[i])
                                                                 kj = 1

@@ -6,8 +6,6 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 from filter import Filter
 
-#, background='#E1D5C5'
-
 
 class Window:
 
@@ -20,18 +18,9 @@ class Window:
         if icon:
             self.root.iconbitmap(icon)
 
-        #self.root.config( bg='#E1D5C5')
-
         self.prov = False
 
         self.fr = Frame(self.root)
-
-        '''
-        mainmenu.add_command(label='Добавить', command=self.appen)
-        mainmenu.add_command(label='Найти', command=self.poisk)
-        mainmenu.add_command(label='Перезагрузить', command=self.tabl)
-        mainmenu.add_command(label='Фильтрованый поиск', command=self.filter)
-        '''
 
         Button(self.fr, text='Добавить', command=self.appen, font=('Calibre', 14, 'bold'), width=20)\
             .grid(column=0, row=4, sticky='E')
@@ -68,8 +57,6 @@ class Window:
 
     def proverk(self):
         self.prov = self.stat_de.get()
-
-
 
     def appen(self, width=400, height=400, title="Добавление", resizable=(True, True), icon=None):
         Appen(self.root, width, height, title, resizable, icon)

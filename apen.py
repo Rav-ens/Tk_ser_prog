@@ -7,8 +7,6 @@ class Appen:
     def __init__(self, parent, width=400, height=400, title="MyWindow", resizable=(True, True), icon=None):
         self.root = Toplevel(parent)
         self.root.title(title)
-        #self.root.geometry(f"{width}x{height}+200+200")
-        #self.root.config(bg='#E1D5C5')
         self.delobj = Entry(self.root)
         self.delobj1 = Entry(self.root)
         self.delobj2 = Entry(self.root)
